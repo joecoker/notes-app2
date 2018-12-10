@@ -1,3 +1,14 @@
+var assert = {
+  isTrue: function(assertionToCheck) {
+    if (!assertionToCheck) {
+      throw new Error("Assertion failed: " + assertionToCheck + " is not truthy")
+    }
+    else {
+      console.log("Passed!");
+    }
+  }
+};
+
 function isAnArray(){
   var test = new NoteList();
   if(Array.isArray(test.list)) {
@@ -13,12 +24,15 @@ isAnArray();
 
 
 function canAddList(){
+  var note1 = new Note("Note number 1")
+  var note2 = new Note("Note number 2")
+
   var test = new NoteList();
-  if(Array.isArray(test.list)) {
-    console.log("isAnArray Passed!!");
-  }
-  else {
-    console.log("Fail");
-    throw new Error("isAnArray doesn't work bro");
-  }
+
+  test.addNote(note1)
+  test.addNote(note2)
+
+  assert.isTrue(test.list.length === 2)
 }
+
+canAddList();
