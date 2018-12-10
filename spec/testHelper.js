@@ -1,7 +1,7 @@
-var describe = function(description, function){
-  console.log(description);
-  function();
-};
+// var describe = function(description, function){
+//   console.log(description);
+//   function();
+// };
 
 var it = function(message, function){
   describe(' ' + message, function)

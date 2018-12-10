@@ -36,3 +36,19 @@ function canAddList(){
 }
 
 canAddList();
+
+
+function canCreateAndAddNote(){
+  var note1 = new Note("Note number 1")
+  var note2 = new Note("Note number 2")
+
+  var test = new NoteList();
+
+  test.addNote(note1)
+  test.addNote(note2)
+  test.createNote("testing 1, 2, 3")
+  console.log(test.list)
+  assert.isTrue(test.list[2].text === "testing 1, 2, 3")
+}
+
+canCreateAndAddNote();
