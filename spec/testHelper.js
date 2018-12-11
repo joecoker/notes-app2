@@ -1,16 +1,18 @@
-// var describe = function(description, function){
-//   console.log(description);
-//   function();
-// };
+var describe = function(description, func){
+  console.log(description);
+  func();
+};
 
-var it = function(message, function){
-  describe(' ' + message, function)
+var it = function(message, func){
+  describe(' ' + message, func);
 };
 
 var assert = {
   isTrue: function(assertionToCheck) {
     if (!assertionToCheck) {
-      throw new Error("Assertion failed: " + assertionToCheck + " is not truthy")
+      throw new Error("Assertion failed: " + assertionToCheck + " is not truthy");
+    } else {
+      console.log("Passed")
     }
-  };
+  }
 };
