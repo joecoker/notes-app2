@@ -1,30 +1,27 @@
+describe(".listView", function() {
+  it("returns an array", function() {
+    var notelist = new NoteList();
+    notelist.createNote("First created note");
+    var noteListView = new NoteListView(notelist);
+    expect(Array.isArray(noteListView.listView)).toEqual(true);
+  })
+});
 
-function canCreateNoteListView() {
-  var notelist = new NoteList();
-  notelist.createNote("First created note");
+describe(".stringList", function() {
+  it("returns a long string", function() {
+    var notelist = new NoteList();
 
-  var noteListView = new NoteListView(notelist);
+    var note1 = new Note("Note number 1")
+    var note2 = new Note("Note number 2")
 
-  assert.isTrue(Array.isArray(noteListView.list));
-}
+    notelist.addNote(note1)
+    notelist.addNote(note2)
 
- canCreateNoteListView();
+    var noteListView = new NoteListView(notelist);
 
-
- function canCreateNoteListView() {
-   var note1 = new Note("Note number 1")
-   var note2 = new Note("Note number 2")
-
-   var notelist = new NoteList();
-   notelist.addNote(note1)
-   notelist.addNote(note2)
-   notelist.createNote("First created note");
-
-
-   var noteListView = new NoteListView(notelist);
-   stringlist = noteListView.stringList();
-   console.log("stringlist is:" + stringlist)
-   assert.isTrue(stringlist === "<ul><li><div>Note number 1</div></li><li><div>Note number 2</div></li><li><div>First created note</div></li></ul>")
- }
-
-  canCreateNoteListView();
+    expect(noteListView.stringList()).toEqual(
+      "<ul><li><div>Note number 1</div></li>" +
+          "<li><div>Note number 2</div></li>" +
+          "</ul>")
+  })
+});

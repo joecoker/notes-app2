@@ -1,12 +1,12 @@
 var NoteListView = function(noteList) {
-  this.list = noteList.list;
+  this.listView = noteList.list;
 }
 
 NoteListView.prototype.stringList = function () {
   var string = "<ul>"
-  for (var i = 0; i < this.list.length; i++) {
-    string += "<li><div>" + this.list[i].text + "</div></li>"
+  for (var i = 0; i < this.listView.length; i++) {
+    string += "<li><div>" + this.listView[i].text + "</div></li>"
   }
-  console.log(string)
+  // console.log(string)
   return (string += "</ul>")
 };

@@ -1,54 +1,29 @@
-var assert = {
-  isTrue: function(assertionToCheck) {
-    if (!assertionToCheck) {
-      throw new Error("Assertion failed: " + assertionToCheck + " is not truthy")
-    }
-    else {
-      console.log("Passed!");
-    }
-  }
-};
+describe(".list", function() {
+  it("returns an array", function() {
+    var test = new NoteList();
+    expect(Array.isArray(test.list)).toEqual(true)
+  })
+});
 
-function isAnArray(){
-  var test = new NoteList();
-  if(Array.isArray(test.list)) {
-    console.log("isAnArray Passed!!");
-  }
-  else {
-    console.log("Fail");
-    throw new Error("isAnArray doesn't work bro");
-  }
-}
+describe(".addNote", function() {
+  it("adds notes to list", function() {
+    var test = new NoteList();
 
-isAnArray();
+    var note1 = new Note("Note number 1")
+    var note2 = new Note("Note number 2")
 
+    test.addNote(note1)
+    test.addNote(note2)
+    expect(test.list.length).toEqual(2)
+  })
+});
 
-function canAddList(){
-  var note1 = new Note("Note number 1")
-  var note2 = new Note("Note number 2")
+describe(".addNote", function() {
+  it("adds notes to list", function() {
+    var test = new NoteList();
 
-  var test = new NoteList();
+    test.createNote("testing 1, 2, 3")
 
-  test.addNote(note1)
-  test.addNote(note2)
-
-  assert.isTrue(test.list.length === 2)
-}
-
-canAddList();
-
-
-function canCreateAndAddNote(){
-  var note1 = new Note("Note number 1")
-  var note2 = new Note("Note number 2")
-
-  var test = new NoteList();
-
-  test.addNote(note1)
-  test.addNote(note2)
-  test.createNote("testing 1, 2, 3")
-  console.log(test.list)
-  assert.isTrue(test.list[2].text === "testing 1, 2, 3")
-}
-
-canCreateAndAddNote();
+    expect(test.list[0].text).toEqual("testing 1, 2, 3")
+  })
+});
