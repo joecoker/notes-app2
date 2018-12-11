@@ -2,13 +2,28 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-  <script src="main.js"></script>
+  <title>Notes</title>
+
+  <script src="src/note-model.js" type="text/javascript"></script>
+  <script src="src/note-list-model.js" type="text/javascript"></script>
+  <script src="src/note-list-view.js" type="text/javascript"></script>
+
 </head>
 <body>
-  <div id="app">Hello</div>
+
+  <div id="app">Hello World</div>
+
+  <script>
+    var notelist = new NoteList();
+    var anotherNote = new Note("Favourite drink: BrewDog")
+    notelist.addNote(anotherNote);
+    notelist.createNote("Favourite drink: seltzer");
+    var noteListView = new NoteListView(notelist);
+
+    
+    document.getElementById("app").innerHTML = noteListView.stringList();
+  
+  </script>
 </body>
+
 </html>
