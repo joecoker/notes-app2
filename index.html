@@ -7,23 +7,11 @@
   <script src="src/note-model.js" type="text/javascript"></script>
   <script src="src/note-list-model.js" type="text/javascript"></script>
   <script src="src/note-list-view.js" type="text/javascript"></script>
+  <script src="src/note-controller.js" type="text/javascript"></script>
 
 </head>
 <body>
-
   <div id="app">Hello World</div>
-
-  <script>
-    var notelist = new NoteList();
-    var anotherNote = new Note("Favourite drink: BrewDog")
-    notelist.addNote(anotherNote);
-    notelist.createNote("Favourite drink: seltzer");
-    var noteListView = new NoteListView(notelist);
-
-    
-    document.getElementById("app").innerHTML = noteListView.stringList();
-  
-  </script>
 </body>
 
 </html>
